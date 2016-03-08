@@ -3,6 +3,10 @@
 # Install adb, fastboot, and romdump
 sudo apt-get install android-tools-fastboot
 
+# Download a tool, romdump
+## http://cloud.addictivetips.com/wp-content/uploads/2011/01/romdump_v72.zip
+### put "install" in the "tools" folder of your Android SDK
+
 # Web Support pages
 ## HTC https://www.unlockbase.com/unlock-phone/htc/
 ## Sony http://unlockbootloader.sonymobile.com/instructions
