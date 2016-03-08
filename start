@@ -1,0 +1,9 @@
+# This installs some important base tools needed for unlocking and what comes after
+
+# Install adb, fastboot, and romdump
+sudo apt-get install android-tools-fastboot
+
+# Web Support pages
+## HTC https://www.unlockbase.com/unlock-phone/htc/
+## Sony http://unlockbootloader.sonymobile.com/instructions
+## ASUS (need to download a special tool, search Google to find yours: 'ASUS download unlock bootloader tool [device model]')
