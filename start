@@ -26,6 +26,24 @@ nano /etc/udev/rules.d/51-android.rules
 ## OR, just type:
 adb reboot-bootloader
 
+# Unlock Bootloader
+## Google Nexus
+fastboot oem unlock
+
+## Sony needs a KEY
+fastboot oem unlock 0x<KEY>
+### Getting Keys
+#### Sony http://unlockbootloader.sonymobile.com/instructions
+
+#### HTC http://www.htcdev.com/bootloader
+# Login
+# You don't need to download their stuff since you already installed it
+fastboot oem get_identifier_token
+# Cut from <<<...Start>>> to <<<...End>>>, remove "INFO" or "(bootloader)" stuff
+# Paste it into the instructions field
+# The KEY is in your email for the account you logged into HTC with
+cd Downloads
+fastboot flash unlocktoken Unlock_code.bin
 
 # Web Support pages
 ## HTC http://www.htcdev.com/bootloader
