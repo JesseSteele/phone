@@ -11,12 +11,33 @@ sudo apt-get install android-tools-fastboot
 > Settings > About > Build Number (tap seven times fast until you get the message 'You are now a developer')
 > Settings > Developer Options ... enable Debugging
 
+# Allow non-roots to use command line
+## Create file /etc/udev/rules.d/51-android.rules with content
+### content: SUBSYSTEM=="usb", ATTR{idVendor}=="<VENDOR>", MODE="0666", GROUP="plugdev"
+nano /etc/udev/rules.d/51-android.rules
+### Get VENDOR ID from http://developer.android.com/tools/device.html#VendorIds
+#### HTC: 0bb4 ASUS: 0b05 Sony: 054c Sharp: 04dd Samsung: 04e8 Nook: 2080 LG: 1004 Google: 18d1 Acer: 0502 Toshiba: 0930 Dell: 413c Motorola: 22b8 Phillips: 0471 Qualcomm: 05c6
+
+# Reboot in fastboot
+## Web pages for Key combos:
+### Sony https://source.android.com/source/building-devices.html#booting-into-fastboot-mode
+### Google Nexus https://source.android.com/source/building-devices.html#booting-into-fastboot-mode
+### HTC http://www.htcdev.com/bootloader/unlock-instructions
+## OR, just type:
+adb reboot-bootloader
+
+
 # Web Support pages
-## HTC https://www.unlockbase.com/unlock-phone/htc/
+## HTC http://www.htcdev.com/bootloader
 ## Sony http://unlockbootloader.sonymobile.com/instructions
 ## ASUS (need to download a special tool, search Google to find yours: 'ASUS download unlock bootloader tool [device model]')
 
 # HTC
+## HTCOneRoot http://downloadandroidrom.com/file/HTCOne/root/HTCOneRoot.zip
+cd Downloads
+unzip HTCOneRoot.zip
+cd HTCOneRoot
+chmod 755 *
 ## Get the IMEI, two options
 ### In the phone, dial: *#06#
 ### > Settings > About > Phone Identity
