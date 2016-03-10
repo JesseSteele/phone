@@ -35,6 +35,8 @@ adb backup -f WhateverNameYouWant.adb -apk -all
 adb reboot-bootloader
 
 # Unlock Bootloader
+## * You must be rebooted in bootloader using "adb reboot-bootloader"
+
 ## Google Nexus
 fastboot oem unlock
 
@@ -42,6 +44,7 @@ fastboot oem unlock
 fastboot oem unlock 0x<KEY>
 ### Getting Keys
 #### Sony http://unlockbootloader.sonymobile.com/instructions
+### Sony may give you another command witn "-i 0x0fce", use that
 
 #### HTC http://www.htcdev.com/bootloader
 # Login
