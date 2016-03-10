@@ -18,6 +18,14 @@ nano /etc/udev/rules.d/51-android.rules
 ### Get VENDOR ID from http://developer.android.com/tools/device.html#VendorIds
 #### HTC: 0bb4 ASUS: 0b05 Sony: 054c Sharp: 04dd Samsung: 04e8 Nook: 2080 LG: 1004 Google: 18d1 Acer: 0502 Toshiba: 0930 Dell: 413c Motorola: 22b8 Phillips: 0471 Qualcomm: 05c6
 
+# Backup the device
+## See connected devices
+adb devices
+### LWDING-longboting3203-BRAND device
+## Backup
+adb backup -f WhateverNameYouWant.adb -apk -all
+### You will be prompted and need to approve in on the phone
+
 # Reboot in fastboot
 ## Web pages for Key combos:
 ### Sony https://source.android.com/source/building-devices.html#booting-into-fastboot-mode
