@@ -1,4 +1,4 @@
-# This installs some important base tools needed for unlocking and what comes after
+# This installs some important base tools needed for backup, unlocking, and what comes after
 
 # Install adb, fastboot, and romdump
 sudo apt-get install android-tools-fastboot
