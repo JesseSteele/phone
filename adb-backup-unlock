@@ -12,9 +12,12 @@ sudo apt-get install android-tools-fastboot
 > Settings > Developer Options ... enable Debugging
 
 # Allow non-roots to use command line
-## Create file /etc/udev/rules.d/51-android.rules with content
-### content: SUBSYSTEM=="usb", ATTR{idVendor}=="<VENDOR>", MODE="0666", GROUP="plugdev"
+## Create files
 nano /etc/udev/rules.d/51-android.rules
+nano /lib/udev/rules.d/51-android.rules
+## with content
+SUBSYSTEM=="usb", ATTR{idVendor}=="<VENDOR>", OWNER="<your username>", GROUP="plugdev"
+### more global content: SUBSYSTEM=="usb", ATTR{idVendor}=="<VENDOR>", MODE="0666", GROUP="plugdev"
 ### Get VENDOR ID from http://developer.android.com/tools/device.html#VendorIds
 #### HTC: 0bb4 ASUS: 0b05 Sony: 054c Sharp: 04dd Samsung: 04e8 Nook: 2080 LG: 1004 Google: 18d1 Acer: 0502 Toshiba: 0930 Dell: 413c Motorola: 22b8 Phillips: 0471 Qualcomm: 05c6
 
