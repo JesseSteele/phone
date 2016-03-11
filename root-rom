@@ -14,7 +14,7 @@ http://www.iroot.com/
 Install: Extract the .exe, right click: run as Administrator > more info, Run Anyway
 On USB connect:
 - Enable Debugging in Developer Options
-- "Charge Only" AKA Settings > Wireless Networks > NFC (off)
+- "Charge Only" AKA Settings > Wireless Networks > NFC / Media Device / MTP (off)
 - Approve the Debugging connection on the phone
 Follow the Wizard, allow apps to install, remain calm as phone reboots and does jumping jacks
 Finished when you see "Rooted" somewhere in a pretty display on the phone
