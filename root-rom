@@ -1,0 +1,46 @@
+# You need to unlock the Bootloader first
+## See adb-backup-unlock
+
+# Rooting and ROM management is all done via Apps
+## There are many complex ways, many proprietary apps and outdated scripts.
+## This uses one proprietary app (ROM Toolbox Pro) and iRoot
+## Root first
+
+# Root your phone
+http://www.iroot.com/
+## Two versions: Windows, Android
+
+## Windows instructions:
+Install: Extract the .exe, right click: run as Administrator > more info, Run Anyway
+On USB connect:
+- Enable Debugging in Developer Options
+- "Charge Only" AKA Settings > Wireless Networks > NFC (off)
+- Approve the Debugging connection on the phone
+Follow the Wizard, allow apps to install, remain calm as phone reboots and does jumping jacks
+Finished when you see "Rooted" somewhere in a pretty display on the phone
+* It will install a new app store with "dangerous" cool apps. Keep it if you want.
+
+## Android iRoot app instructions:
+Download iRoot - Android, probably RomasterSu......apk
+Settings > Security > allow installation from Unknown Sources
+2 options to install:
+## 1. Put the .apk in your phone-connected Dropbox
+### Dropbox can install the .apk when you tap it
+## 2. Copy to phone or SD card, maybe via "Mount as Disk" USB
+### Use any .apk installer from Google Play, "Easy Installer" works great
+Run iRoot and get root access.
+Congrats, done!
+
+# Backup your ROM
+Buy ROM Toolbox Pro in the Google Play store, one purchase for all devices in March 2016
+Open ROM Toolbox Pro
+> ROM Installer > Right swipe, > Backup & Restore > Backup Current ROM 
+- Accept the Date name and remember it
+- Confirm the Reboot
+At reboot:
+- Backup and restore
+* ROM Toolbox Pro has lots of other features as well
+
+
+# Terminal Emulator (If you ever need one, such as to run a romdump script)
+https://play.google.com/store/apps/details?id=jackpal.androidterm
