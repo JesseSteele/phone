@@ -3,33 +3,17 @@
 # Install adb, fastboot, and romdump
 sudo apt-get install android-tools-fastboot
 
-# Download a tool, romdump
-## http://cloud.addictivetips.com/wp-content/uploads/2011/01/romdump_v72.zip
-### put "install" in the "tools" folder of your Android SDK
-
 # Enable developer and debugging in the phone
-> Settings > About > Build Number (tap seven times fast until you get the message 'You are now a developer')
+> Settings > About > ???maybe another setting??? > Build Number (tap seven times fast until you get the message 'You are now a developer')
 > Settings > Developer Options ... enable Debugging
-
-# Allow non-roots to use command line
-## Create files
-nano /etc/udev/rules.d/51-android.rules
-nano /lib/udev/rules.d/51-android.rules
-## with content
-SUBSYSTEM=="usb", ATTR{idVendor}=="<VENDOR>", OWNER="<your username>", GROUP="plugdev"
-### more global content: SUBSYSTEM=="usb", ATTR{idVendor}=="<VENDOR>", MODE="0666", GROUP="plugdev"
-### Get VENDOR ID from http://developer.android.com/tools/device.html#VendorIds
-#### HTC: 0bb4 ASUS: 0b05 Sony: 054c Sharp: 04dd Samsung: 04e8 Nook: 2080 LG: 1004 Google: 18d1 Acer: 0502 Toshiba: 0930 Dell: 413c Motorola: 22b8 Phillips: 0471 Qualcomm: 05c6
-## Restart udev
-service udev restart
 
 # Backup the device
 ## See connected devices
 adb devices
-### LWDING-longboting3203-BRAND device
+### LWDING-longboting3203-BRAND device (make sure it says 'device' so Debugging mode is working)
 ## Backup
 adb backup -f WhateverNameYouWant.adb -apk -all
-### You will be prompted and need to approve in on the phone
+### You will be prompted and need to approve in on the phone, process is about 10-30 minutes
 
 # Reboot in fastboot
 ## Web pages for Key combos:
@@ -64,8 +48,41 @@ fastboot flash unlocktoken Unlock_code.bin
 # Web Support pages
 ## HTC http://www.htcdev.com/bootloader
 ## Sony http://unlockbootloader.sonymobile.com/instructions
-## ASUS (need to download a special tool, search Google to find yours: 'ASUS download unlock bootloader tool [device model]')
+## ASUS May need special tool, may not be necessary, may be as easy as Nexus #DUNNO
 
+##### DEPRECIATED FOLLOWS ############
+
+#### This doesn't seem necessary #####
+# Allow non-roots to use command line in phone
+## Create files
+nano /etc/udev/rules.d/51-android.rules
+nano /lib/udev/rules.d/51-android.rules
+## with content
+SUBSYSTEM=="usb", ATTR{idVendor}=="<VENDOR>", OWNER="<your username>", GROUP="plugdev"
+### more global content: SUBSYSTEM=="usb", ATTR{idVendor}=="<VENDOR>", MODE="0666", GROUP="plugdev"
+### Get VENDOR ID from http://developer.android.com/tools/device.html#VendorIds
+#### HTC: 0bb4 ASUS: 0b05 Sony: 054c Sharp: 04dd Samsung: 04e8 Nook: 2080 LG: 1004 Google: 18d1 Acer: 0502 Toshiba: 0930 Dell: 413c Motorola: 22b8 Phillips: 0471 Qualcomm: 05c6
+## Restart udev
+service udev restart
+##############################
+
+#### This doesn't work ######
+# Enter the phone's command
+## Get the right numbers for your phone
+lsusb
+## Many devices listed, we want something like this, eg HTC:
+Bus 001 Device 086: ID 0bb4:0cf0 HTC (High Tech Computer Corp.)
+### in which case type:
+ls -l /dev/bus/usb/001/086
+###############################
+
+#### This isn't necessary if you use iRoot ####
+# Download a tool, romdump
+## http://cloud.addictivetips.com/wp-content/uploads/2011/01/romdump_v72.zip
+### put "install" in the "tools" folder of your Android SDK
+################################################
+
+###### Dunno what this is, may be unnecessary #######
 # HTC
 ## HTCOneRoot http://downloadandroidrom.com/file/HTCOne/root/HTCOneRoot.zip
 cd Downloads
@@ -75,3 +92,4 @@ chmod 755 *
 ## Get the IMEI, two options
 ### In the phone, dial: *#06#
 ### > Settings > About > Phone Identity
+#####################################################
