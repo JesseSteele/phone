@@ -1,6 +1,6 @@
-# This installs some important base tools needed for backup, unlocking, and what comes after
+# This installs some important base tools needed for unlocking
 
-# Install adb, fastboot, and romdump
+# Install adb fastboot
 sudo apt-get install android-tools-fastboot
 
 # Enable developer and debugging in the phone
@@ -24,35 +24,36 @@ adb backup -f WhateverNameYouWant.adb -apk -all
 adb reboot-bootloader
 
 # Unlock Bootloader
-## * You must be rebooted in bootloader using "adb reboot-bootloader"
+## * You must be rebooted in fastboot using "adb reboot-bootloader"
 
 ## Google Nexus
 fastboot oem unlock
 
 ## Sony needs a KEY
+#### Sony http://unlockbootloader.sonymobile.com/instructions
 fastboot oem unlock 0x<KEY>
 ### Getting Keys
-#### Sony http://unlockbootloader.sonymobile.com/instructions
 ### Sony may give you another command witn "-i 0x0fce", use that
 
-#### HTC http://www.htcdev.com/bootloader
+## HTC needs a bin
+### http://www.htcdev.com/bootloader
 # Login
 # You don't need to download their stuff since you already installed it
 fastboot oem get_identifier_token
 # Cut from <<<...Start>>> to <<<...End>>>, remove "INFO" or "(bootloader)" stuff
 # Paste it into the instructions field
-# The KEY is in your email for the account you logged into HTC with
+# The .bin file is in your email for the account you logged into HTC with
 cd Downloads
 fastboot flash unlocktoken Unlock_code.bin
 
-# Web Support pages
-## HTC http://www.htcdev.com/bootloader
-## Sony http://unlockbootloader.sonymobile.com/instructions
-## ASUS May need special tool, may not be necessary, may be as easy as Nexus #DUNNO
+### HTC some special cases may need this
+## Get the IMEI, two options
+### In the phone, dial: *#06#
+### > Settings > About > Phone Identity
 
-##### DEPRECIATED FOLLOWS ############
+# ASUS May need special .apk tool
 
-#### This doesn't seem necessary #####
+
 # Allow non-roots to use command line in phone
 ## Create files
 nano /etc/udev/rules.d/51-android.rules
@@ -64,32 +65,3 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="<VENDOR>", OWNER="<your username>", GROUP="pl
 #### HTC: 0bb4 ASUS: 0b05 Sony: 054c Sharp: 04dd Samsung: 04e8 Nook: 2080 LG: 1004 Google: 18d1 Acer: 0502 Toshiba: 0930 Dell: 413c Motorola: 22b8 Phillips: 0471 Qualcomm: 05c6
 ## Restart udev
 service udev restart
-##############################
-
-#### This doesn't work ######
-# Enter the phone's command
-## Get the right numbers for your phone
-lsusb
-## Many devices listed, we want something like this, eg HTC:
-Bus 001 Device 086: ID 0bb4:0cf0 HTC (High Tech Computer Corp.)
-### in which case type:
-ls -l /dev/bus/usb/001/086
-###############################
-
-#### This isn't necessary if you use iRoot ####
-# Download a tool, romdump
-## http://cloud.addictivetips.com/wp-content/uploads/2011/01/romdump_v72.zip
-### put "install" in the "tools" folder of your Android SDK
-################################################
-
-###### Dunno what this is, may be unnecessary #######
-# HTC
-## HTCOneRoot http://downloadandroidrom.com/file/HTCOne/root/HTCOneRoot.zip
-cd Downloads
-unzip HTCOneRoot.zip
-cd HTCOneRoot
-chmod 755 *
-## Get the IMEI, two options
-### In the phone, dial: *#06#
-### > Settings > About > Phone Identity
-#####################################################
