@@ -1,5 +1,7 @@
+# This is not necessary if you flash a new rom directly
+
 # You need to unlock the Bootloader first
-## See adb-backup-unlock
+## See adb-unlock
 
 # Rooting and ROM management is all done via Apps
 ## There are many complex ways, many proprietary apps and outdated scripts.
