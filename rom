@@ -1,0 +1,46 @@
+# ROMs are managed by a kind of secondary-bootup system called a "recovery"
+
+# One recovery is "clockworkmod" AKA "CWM", another is "Team Win Recovery Project" AKA "TWRP"
+## Android apps that backup/install a ROM actually use these, so those apps are not necessary
+
+
+
+# Putting these on your phone should not hurt your current ROM or installation, even though most instructions sound like it will
+
+# These allow you to backup your ROM, install a new ROM, etc, like wipe data (including your current ROM, so be careful)
+# A ROM ranges from about 200MB to 2.5GB
+
+# These instructions assume TWRP, but may apply to CWM
+
+# Backup your ROM
+## *You need space. If you "Wipe" stuff, wipe Cache etc, but avoid "boot" and anything the size of a ROM
+## *To clear up space, Factory Reset is usually what you need.
+## The recovery (CWM/TWRP) should do it for you. Here is a guide:
+http://htconeroot.com/htc-one-backup/how-to-backuprestore-rom-on-htc-one/
+
+
+# Installing a ROM requires a .zip file to be on the device already
+## There are many options for this...
+
+# Add a ROM to the SD card directly
+## Use "mount as disk" or something via Android
+## Or just insert the SD to your computer and copy it
+
+# *Copying vid adb push requires:
+## Recovery mode (CWM/TWRP)
+## Can't copy into root space, must be into a dir
+## Must have a preceeding and trailing /
+### Do not forget the trailing slash, best beloved/
+
+# Add to the SD card in recovery
+adb push romname.zip /data/media/
+## Or
+adb push romname.zip /sdcard/ROM/
+
+# Add a new ROM to internal storage (no removable SD card, eg HTC)
+## Boot into recovery mode (TWRP)
+### Power, volume up/down
+## Check connection
+adb devices
+### BLABLA9001SERIAL recovery
+adb push romname.zip /sdcard/
