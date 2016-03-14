@@ -10,7 +10,13 @@
 # These allow you to backup your ROM, install a new ROM, etc, like wipe data (including your current ROM, so be careful)
 # A ROM ranges from about 200MB to 2.5GB
 
-# These instructions assume TWRP, but may apply to CWM
+# You need a Recovery
+## Download either Clockwork Mod or TWRP for your device
+## Boot to fastboot via bootloader options
+## Make sure your device is available
+fastboo devices
+# BLABLA9001SERIAL fastboot
+fastboot flash recovery RECOVERY_NAME.img
 
 # Backup your ROM
 ## *You need space. If you "Wipe" stuff, wipe Cache etc, but avoid "boot" and anything the size of a ROM
